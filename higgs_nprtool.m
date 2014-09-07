@@ -19,6 +19,11 @@ net = patternnet(hiddenLayerSize);
 net.input.processFcns = {'mapminmax', 'fixunknowns'};
 
 
+% My favorite training algorithm ;)
+net.trainFcn = 'trainlm';
+net.performFcn = 'mse';
+
+
 % Setup Division of Data for Training, Validation, Testing
 net.divideParam.trainRatio = 70/100;
 net.divideParam.valRatio = 15/100;
