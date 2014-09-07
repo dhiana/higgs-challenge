@@ -15,6 +15,10 @@ hiddenLayerSize = 10;
 net = patternnet(hiddenLayerSize);
 
 
+% Adds support for NaN values
+net.input.processFcns = {'mapminmax', 'fixunknowns'};
+
+
 % Setup Division of Data for Training, Validation, Testing
 net.divideParam.trainRatio = 70/100;
 net.divideParam.valRatio = 15/100;

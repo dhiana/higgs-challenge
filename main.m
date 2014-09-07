@@ -1,6 +1,9 @@
 training = higgs_importfile('./data/training.csv');
 test = higgs_importfile('./data/test.csv');
 
+training = standardizeMissing(training, -999);
+test = standardizeMissing(test, -999);
+
 inputs = training{:,2:31};
 test_inputs = test{:,2:31};
 
