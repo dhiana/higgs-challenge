@@ -29,4 +29,6 @@ EventId = array2table(test.EventId, 'VariableNames', {'EventId'});
 
 Result = [EventId RankOrder Class];
 
-writetable(Result, 'results/result.csv', 'WriteRowNames', true)
+result_filename = strcat('./results/result-', datestr(now, 'yyyymmddHHMM'), '.csv');
+
+writetable(Result, result_filename, 'WriteRowNames', true)
