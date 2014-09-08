@@ -16,7 +16,7 @@ net = patternnet(hiddenLayerSize);
 
 
 % Adds support for NaN values
-net.input.processFcns = {'mapminmax', 'fixunknowns'};
+net.input.processFcns = {'mapminmax', 'fixunknowns', 'processpca'};
 
 
 % My favorite training algorithm ;)
