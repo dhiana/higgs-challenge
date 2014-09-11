@@ -4,9 +4,11 @@ net_config = config_net(10, 'trainlm', 'mse');
 
 [net, tr] = train(net_config, inputs', targets');
 
-threshold = 0.8;
+outputs = net(inputs');
 
-[ams, performance] = eval_net(net, inputs', targets', threshold);
+[threshold, ams] = choose_threshold(outputs, targets, weights)
+
+performance = eval_net(net, inputs', targets', threshold);
 
 [test_eventid, test_inputs] = load_test_data();
 
