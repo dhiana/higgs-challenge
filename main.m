@@ -4,7 +4,7 @@ net_config = config_net(10, 'trainlm', 'mse');
 
 [net, tr] = train(net_config, inputs', targets');
 
-threshold = 0.5;
+threshold = 0.8;
 
 [ams, performance] = eval_net(net, inputs', targets', threshold);
 
