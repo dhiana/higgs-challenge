@@ -1,17 +1,21 @@
-[inputs, targets, weights] = load_training_data();
+function [net, performance, ams] = main(k_neurons)
 
-net_config = config_net(10, 'trainlm', 'mse');
+    [inputs, targets, weights] = load_training_data();
 
-[net, tr] = train(net_config, inputs', targets');
+    net_config = config_net(k_neurons, 'trainlm', 'mse');
 
-outputs = net(inputs');
+    [net, tr] = train(net_config, inputs', targets');
 
-[threshold, ams] = choose_threshold(outputs, targets, weights)
+    outputs = net(inputs');
 
-performance = eval_net(net, inputs', targets', threshold);
+    [threshold, ams] = choose_threshold(outputs, targets, weights)
 
-[test_eventid, test_inputs] = load_test_data();
+    performance = eval_net(net, inputs', targets', threshold);
 
-test_outputs = sim(net, test_inputs');
+    [test_eventid, test_inputs] = load_test_data();
 
-write_submission_file(test_eventid, test_outputs', threshold);
+    test_outputs = sim(net, test_inputs');
+
+    write_submission_file(test_eventid, test_outputs', threshold, ams, k_neurons);
+
+end
