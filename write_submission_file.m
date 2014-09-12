@@ -1,4 +1,4 @@
-function write_submission_file(eventid, outputs, threshold)
+function write_submission_file(eventid, outputs, threshold, ams, k_neurons)
 
     [~, rank_order] = sort(outputs');
 
@@ -17,7 +17,7 @@ function write_submission_file(eventid, outputs, threshold)
 
     Result = [EventId RankOrder Class];
 
-    result_filename = strcat('./results/result-', datestr(now, 'yyyymmddHHMM'), '.csv');
+    result_filename = strcat('./results/result-', num2str(ams), '-', num2str(k_neurons), '-', datestr(now, 'yyyymmddHHMM'), '.csv');
 
     writetable(Result, result_filename, 'WriteRowNames', true)
 
