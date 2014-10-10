@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "::: higgs-ml [prediction]..."
+echo "::: args:" $@
+
+in=${1:-'test.csv'}
+trained=${2:-'trained.dat'}
+out=${3:-'submission.csv'}
+
+matlab -r "run('$in', '$trained', '$out')" -nodesktop -nodisplay -nosplash -nojvm || exit 1
+
+echo "::: higgs-ml [prediction]... [ok]"
+exit 0
