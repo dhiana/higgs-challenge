@@ -2,3 +2,5 @@
 *~
 data/*
 results/*
+*.csv
+*.dat
