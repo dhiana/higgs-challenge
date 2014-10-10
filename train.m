@@ -14,4 +14,6 @@ function train(in, out)
 
     save(out, 'net', 'threshold', '-mat');
 
+    exit;
+
 end

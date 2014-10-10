@@ -8,4 +8,6 @@ function run(in, trained, out)
 
     write_submission_file(test_eventid, test_outputs', threshold, out);
 
+    exit;
+
 end
